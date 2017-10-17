@@ -4,7 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TableView;
 
+import java.util.LinkedHashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class Controller {
     public Spinner <Integer> n1Spinner;
@@ -13,12 +15,16 @@ public class Controller {
     public Spinner <Integer> n4Spinner;
     public TableView<Turn> resultTable;
     private int nr=1;
+    private Set<Integer> rand = new LinkedHashSet<>();
+
 
     public void initialize (){
-        Random r1 = new Random();
-        Random r2 = new Random();
-        Random r3 = new Random();
-        Random r4 = new Random();
+        Random r = new Random();
+        while (rand.size() < 4) {
+            int n = r.nextInt(10);
+            rand.add(n);
+        }
+
 
     }
 
@@ -34,7 +40,7 @@ public class Controller {
         resultTable.getItems().add(t);
     }
 
-    public void countCows {
-        
-    }
+
+
+
 }
